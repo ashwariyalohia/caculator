@@ -1,5 +1,6 @@
 package com.ashwariya.colsaw.calculator;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Double number1;
         Double number2;
         Double result;
+        Intent myIntent = new Intent(this, result.class);
         try{
             switch(v.getId()){
                 case R.id.addition:
@@ -87,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                     res.setText(temp);
                     break;
             }
+            myIntent.putExtra("data", temp);
+            startActivity(myIntent);
         }catch(Exception e){
             Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
